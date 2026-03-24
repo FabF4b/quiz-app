@@ -1,0 +1,26 @@
+.quiz-question {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+
+  &__hint {
+    text-align: center;
+  }
+
+  &__answer {
+    text-align: center;
+  }
+
+  &__resolve-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  &__next-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+}

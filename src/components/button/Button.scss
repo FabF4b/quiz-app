@@ -1,0 +1,16 @@
+.button {
+  border-radius: 100vh;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background-color: var(--bg-clr);
+  box-shadow: var(--shadow);
+
+  &:hover {
+    border: 2px solid hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 19%);
+    box-shadow: none;
+    background: var(--bg-clr);
+    transition: all 0.2s ease-in;
+  }
+}
