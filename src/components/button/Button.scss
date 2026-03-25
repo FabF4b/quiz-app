@@ -1,16 +1,60 @@
 .button {
   border-radius: 100vh;
   padding: 0.5rem 1rem;
-  border: 2px solid transparent;
+  border: 1px solid hsla(0, 0%, 83%);
   cursor: pointer;
   background-color: var(--bg-clr);
   box-shadow: var(--shadow);
 
   &:hover {
-    border: 2px solid hsl(0, 0%, 90%);
+    border: 1px solid hsl(0, 0%, 90%);
     color: hsl(0, 0%, 19%);
     box-shadow: none;
     background: var(--bg-clr);
     transition: all 0.2s ease-in;
+  }
+
+  &__correct {
+    border-radius: 100vh;
+    padding: 0.5rem 1rem;
+    color: hsla(100, 90%, 40%);
+    background-color: var(--bg-clr);
+    border: 1px solid hsla(100, 90%, 40%, 0.5);
+    box-shadow:
+      6px 6px 12px hsla(100, 90%, 30%, 0.2),
+      -6px -6px 12px var(--shadow-clr-2);
+    animation: fillPulseGreen 0.5s ease-in forwards;
+  }
+
+  &__wrong {
+    border-radius: 100vh;
+    padding: 0.5rem 1rem;
+    color: hsla(10, 90%, 45%);
+    background-color: var(--bg-clr);
+    border: 1px solid hsla(10, 90%, 45%, 0.5);
+    box-shadow:
+      6px 6px 12px hsla(10, 90%, 30%, 0.2),
+      -6px -6px 12px var(--shadow-clr-2);
+    animation: fillPulseRed 0.5s ease-in forwards;
+  }
+}
+
+@keyframes fillPulseGreen {
+  20% {
+    background: hsla(100, 90%, 40%, 0.5);
+  }
+  40% {
+    border: 1px solid hsla(100, 90%, 40%, 0.5);
+    color: hsla(100, 90%, 40%, 0.5);
+  }
+}
+
+@keyframes fillPulseRed {
+  20% {
+    background: hsla(10, 90%, 45%, 0.5);
+  }
+  40% {
+    border: 1px solid hsla(10, 90%, 30%, 0.2);
+    color: hsla(10, 90%, 30%, 0.2);
   }
 }

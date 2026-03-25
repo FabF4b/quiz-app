@@ -8,6 +8,7 @@ import Question from "../question/Question";
 import "./QuizQuestion.scss";
 
 function QuizQuestion({
+  selectedAnswer,
   currentQuestion,
   nextQuestion,
   isHintVisible,
@@ -20,8 +21,10 @@ function QuizQuestion({
     <div className="quiz-question">
       <Question currentQuestion={currentQuestion} />
       <Answers
+        selectedAnswer={selectedAnswer}
         currentQuestion={currentQuestion}
         validateAnswer={validateAnswer}
+        isAnswerVisible={isAnswerVisible}
       />
       {isHintVisible && (
         <div className="quiz-question__hint">
@@ -32,7 +35,7 @@ function QuizQuestion({
         <div className="quiz-question__answer">
           <Answer
             text={
-              currentQuestion.answers.find((answer) => answer.isCorrect)?.info
+              currentQuestion.answers.find((answer) => answer.isCorrect).info
             }
           />
         </div>

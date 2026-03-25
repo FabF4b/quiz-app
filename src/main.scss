@@ -1,3 +1,4 @@
+@use "/src/mixins";
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
 * {
@@ -9,14 +10,12 @@
 }
 
 :root {
-  --bg-clr: hsl(0, 0%, 85%);
-  --shadow-clr-1: hsl(0, 0%, 65%);
-  --shadow-clr-2: hsl(0, 0%, 100%);
+  --bg-clr: hsl(0, 0%, 87%);
+  --shadow-clr-1: hsla(0, 0%, 65%);
+  --shadow-clr-2: hsl(0, 0%, 98%);
   --text-clr: hsl(0, 0%, 85%);
-  --hover-highlight: hsl(270, 25%, 70%);
-  --warning-clr: hsla(0, 92%, 42%, 0.9);
   --shadow:
-    6px 6px 16px var(--shadow-clr-1), -6px -6px 16px var(--shadow-clr-2);
+    6px 6px 12px var(--shadow-clr-1), -6px -6px 12px var(--shadow-clr-2);
   --font-primary: "IBM Plex Sans", sans-serif;
 }
 
@@ -26,9 +25,15 @@ body {
 }
 
 #app {
-  height: 100dvh;
+  height: 90dvh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 2rem;
+
+  @include mixins.largeScreen {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 4rem;
+  }
 }

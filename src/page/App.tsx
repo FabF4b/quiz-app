@@ -5,7 +5,6 @@ import type { Answer, Question, ValidateAnswerProps } from "../types";
 
 function App() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [isCorrect, setIsCorrect] = useState(false);
   const [isHintVisible, setIsHintVisible] = useState(false);
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
 
@@ -29,27 +28,31 @@ function App() {
       setIsHintVisible(false);
       setIsAnswerVisible(false);
       setCurrentQuestionIndex(currentQuestionIndex);
+      setSelectedAnswer(null);
     } else {
       currentQuestionIndex = 0;
       setIsHintVisible(false);
       setIsAnswerVisible(false);
       setCurrentQuestionIndex(currentQuestionIndex);
+      setSelectedAnswer(null);
     }
   }
 
-  function validateAnswer(answerId: ValidateAnswerProps) {
-    setSelectedAnswer(answerId);
-    const correctAnswer = currentQuestion.answers.find(
-      (answer) => answer.isCorrect,
-    );
-    correctAnswer.id === answerId
-      ? console.log("richtig")
-      : console.log("falsch");
+  function validateAnswer(id: ValidateAnswerProps) {
+    setSelectedAnswer(id);
+    handleShowAnswer();
+    // const correctAnswer = currentQuestion.answers.find(
+    //   (answer) => answer.isCorrect,
+    // );
+    // correctAnswer.id === answerId
+    //   ? console.log("richtig")
+    //   : console.log("falsch");
   }
 
   return (
     <div id="app">
       <QuizQuestion
+        selectedAnswer={selectedAnswer}
         currentQuestion={currentQuestion}
         nextQuestion={nextQuestion}
         isHintVisible={isHintVisible}

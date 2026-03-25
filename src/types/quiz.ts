@@ -13,6 +13,7 @@ export type Question = {
 };
 
 export type QuizQuestionProps = {
+  selectedAnswer: null;
   currentQuestion: Question;
   isHintVisible: boolean;
   isAnswerVisible: boolean;
@@ -22,26 +23,33 @@ export type QuizQuestionProps = {
   validateAnswer: (id: string) => void;
 };
 
+export type QuestionProps = {
+  currentQuestion: Question;
+};
+
 export type AnswersProps = {
+  selectedAnswer: null;
   currentQuestion: Question;
   validateAnswer: (id: string) => void;
+  isAnswerVisible: boolean;
 };
 
 export type AnswerOptionProps = {
   text: string;
   id: string;
+  className: string;
   validateAnswer: (id: string) => void;
 };
 
 export type ValidateAnswerProps = {
-  text: string;
+  id: string;
 };
 
 export type ButtonProps = {
   className: string;
   text: string;
   id?: string;
-  clickEvent: (id?: string) => void;
+  clickEvent: () => void;
 };
 
 export type HintProps = {
